@@ -26,7 +26,7 @@ public class SignIn extends BaseTest {
         elementMethods.clickElement(signInButtonElement);
 
         WebElement createAccountElement = Driver.findElement(By.xpath("//*[@id='email_create']"));
-        String emailvalue="averchipaula20@gmail.com";
+        String emailvalue="averchipaula20@icloud.com";
         elementMethods.fillElement(createAccountElement,emailvalue);
 
         WebElement clickAccountElement = Driver.findElement(By.xpath("//*[@id='SubmitCreate']/span/i"));
@@ -34,9 +34,9 @@ public class SignIn extends BaseTest {
 
         try{
             Thread.sleep(5000);
-        }
-        catch(InterruptedException ie){
-        }
+       }
+       catch(InterruptedException ie){
+       }
 
 
         WebElement clickGenderElement = Driver.findElement(By.id("uniform-id_gender2"));
@@ -125,8 +125,8 @@ public class SignIn extends BaseTest {
         String assignaddressValue = "Park Avenue rue 25 ";
         elementMethods.fillElement(assignAddressElement,assignaddressValue);
 
-        WebElement registerElement = Driver.findElement(By.id("submitAccount"));
-        elementMethods.clickElement(registerElement);
+       // WebElement registerElement = Driver.findElement(By.id("submitAccount"));
+       // elementMethods.clickElement(registerElement);
 
 
 
