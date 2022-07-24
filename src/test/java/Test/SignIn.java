@@ -8,8 +8,11 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -22,22 +25,19 @@ public class SignIn extends BaseTest {
 
         ElementMethods elementMethods = new ElementMethods(Driver);
 
-        WebElement signInButtonElement = Driver.findElement(By.cssSelector(".login"));
-        elementMethods.clickElement(signInButtonElement);
+       WebElement signInButtonElement = Driver.findElement(By.cssSelector(".login"));elementMethods.clickElement(signInButtonElement);
 
         WebElement createAccountElement = Driver.findElement(By.xpath("//*[@id='email_create']"));
-        String emailvalue="averchipaula20@icloud.com";
+        String emailvalue="averchipaula20";
+        emailvalue = emailvalue + System.currentTimeMillis()+"@icloud.com";
         elementMethods.fillElement(createAccountElement,emailvalue);
 
         WebElement clickAccountElement = Driver.findElement(By.xpath("//*[@id='SubmitCreate']/span/i"));
         elementMethods.clickElement(clickAccountElement);
 
-        try{
-            Thread.sleep(5000);
-       }
-       catch(InterruptedException ie){
-       }
-
+        //wait explicit
+        WebDriverWait wait = new WebDriverWait(Driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("uniform-id_gender2")));
 
         WebElement clickGenderElement = Driver.findElement(By.id("uniform-id_gender2"));
         elementMethods.clickElement(clickGenderElement);
